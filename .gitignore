@@ -5,3 +5,7 @@ dist/
 # Environment files
 .env
 .env.local
+
+src/masterAdmin.ts
+
+testPost.ts
