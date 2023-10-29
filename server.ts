@@ -17,12 +17,15 @@ server.listen(PORT, "", async () => {
   // Connect to database
   await DB.connect();
 
-  // Check wether user admin exists
+  // Check wether master admin exists
   const adminExists = await DB.adminExists();
 
-  // Create a master admin initially if no admin exists
+  // Create a master admin initially if none exists
   adminExists ? logger.log("Admin already exists!") : DB.createAdmin(masterAdminData);
 });
 
 import submitBlog from "./src/routes/submitBlog";
 server.use("/submit-blog", submitBlog);
+
+import login from "./src/routes/login";
+server.use("/login", login);
